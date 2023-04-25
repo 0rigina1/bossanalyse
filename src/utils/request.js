@@ -12,7 +12,7 @@ const auth = ['/data/jobs']
 service.interceptors.request.use(
     config => {
         if (store.state.auth) {
-            if(config.url in auth) {
+            if(auth.indexOf(config.url) !== -1) {
                 config.headers['auth'] = store.state.auth
             }
         }
